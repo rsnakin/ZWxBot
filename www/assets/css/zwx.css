@@ -1,0 +1,65 @@
+input {
+    font-weight: bold;
+    color: rgb(10, 48, 123);
+    border: 1px solid rgb(50, 110, 231);
+    text-align: center;
+}
+input:focus {
+    box-shadow: 0 0 6px 0.4rem rgba(65, 116, 235, 0.25) !important;
+}
+#saveOptions:focus {
+    box-shadow: 0 0 6px 0.4rem rgba(65, 105, 214, 0.25) !important;
+}
+pre {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    font-family: monospace;
+}
+.log-plain { display: block; }
+.log-info { color: #0e17d0; display: block; }
+.log-error { color: #dc3545; font-weight: bold; display: block; }
+.log-chatid { color: rgb(0, 142, 9); display: block; }
+.log-start { color: rgb(112, 24, 179); font-weight: bold; display: block; }
+.log-panic { color: #dc3545; font-weight: bold; display: block; }
+.log-telegramAlert { color: rgb(182, 84, 14); font-weight: bold; display: block; }
+.widget {
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.widget:hover {
+    transform: scale(1.02);
+}
+.widget h2 {
+    font-size: 2.0rem;
+    margin: 0.4rem 0;
+    font-weight: 600;
+}
+.widget .icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.label {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #555;
+}
+.zwx-link {
+    cursor:pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

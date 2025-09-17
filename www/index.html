@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>🌡 ZWxBot</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/nunito/nunito.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/css/zwx.css">
+</head>
+<body style="display:none;">
+    <div id="wrapper">
+        <nav id="navbar" class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
+                    <div class="sidebar-brand-icon" style="padding-top:10px;"><img src="/assets/img/ZWxBot.png" width="48" 
+                        height="48"><div class="sidebar-brand-text">&nbsp;ZWxBot</div></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link zwx-link" id="dashboard"><i class="fas fa-table"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link zwx-link" id="trCharts"><i class="fas fa-chart-line"></i><span>Real-time charts</span></a></li>
+                    <li class="nav-item"><a class="nav-link zwx-link" id="options"><i class="fas fa-sliders-h"></i><span>Options</span></a></li>
+                    <li class="nav-item"><a class="nav-link zwx-link" id="log"><i class="fas fa-scroll"></i><span>Log</span></a></li>
+                    <!--li class="nav-item"><a class="nav-link" style="cursor:pointer;"><i class="far fa-user-circle"></i><span>Login</span></a></li>
+                    <li class="nav-item"><a class="nav-link" style="cursor:pointer;"><i class="fas fa-user-circle"></i><span>Register</span></a></li-->
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="currentContent"></div>
+        </div>
+    </div>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="/assets/js/chart.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/tools.js?ver=10"></script>
+</body>
+</html>
