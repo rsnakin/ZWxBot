@@ -154,11 +154,24 @@ auto uptime() {
 }
 std::string printUptime() {
     auto seconds = uptime();
-    int hrs = seconds / 3600;
+
+    int days = seconds / 86400;
+    int hrs  = (seconds % 86400) / 3600;
     int mins = (seconds % 3600) / 60;
     int secs = seconds % 60;
+
     std::ostringstream ret;
-    ret << hrs << ":" << std::setfill('0') << std::setw(2) << mins << ":" << std::setfill('0') << std::setw(2) << secs;
+    if (days > 0) {
+        ret << days << " day(s) "
+            << hrs << ":"
+            << std::setfill('0') << std::setw(2) << mins << ":"
+            << std::setfill('0') << std::setw(2) << secs;
+    } else {
+        ret << hrs << ":"
+            << std::setfill('0') << std::setw(2) << mins << ":"
+            << std::setfill('0') << std::setw(2) << secs;
+    }
+
     return ret.str();
 }
 void startSensorThread() {
@@ -341,7 +354,9 @@ void fn(struct mg_connection *c, int ev, void *ev_data) {
             if (!isRainLikely()) {
                 isRain =  NO_RAIN_EXP_SHRT;
             }
-            doc["temperature"]    = ds18b20_temp;
+            char tempStr[16];
+            snprintf(tempStr, sizeof(tempStr), "%+0.2f", ds18b20_temp);
+            doc["temperature"]    = tempStr;
             doc["pressure"]       = bmp180_pressure;
             doc["humidity"]       = dht11_humidity;
             doc["humidity_orig"]  = dht11_humidity_orig;
