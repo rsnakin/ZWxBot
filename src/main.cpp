@@ -16,6 +16,7 @@
 #include "mongoose.h"
 #include <sqlite3.h>
 #include "json.hpp"
+#include <limits.h>
 #include "sql.hpp"
 #include "ssd1306.hpp"
 #include "log.hpp"
@@ -147,6 +148,15 @@ std::string APISaveConfig(struct mg_http_message *hm) {
     } else {
         return "{\"status\":\"ERROR\"}";
     }
+}
+int get_executable_path(char *buf, size_t size) {
+    if (!buf || size == 0) return -1;
+    ssize_t len = readlink("/proc/self/exe", buf, size - 1);
+    if (len == -1) {
+        return -1;
+    }
+    buf[len] = '\0';
+    return 0;
 }
 auto uptime() {
     auto now = std::chrono::steady_clock::now();
@@ -508,6 +518,14 @@ int main(int argc, char* argv[]) {
     if(!isSystemd) killOtherInstances(APP_NAME, 1000);
     gLog.setLogPath(LOG_PATH);
     gLog.write("%s started", APP_NAME);
+
+    char myPath[PATH_MAX];
+    if (get_executable_path(myPath, sizeof(myPath)) == 0) {
+        gLog.write("Executable path: %s\n", myPath);
+    } else {
+        gLog.write("Error: get_executable_path");
+    }
+
     pid_t myPID = getpid();
 
     if (sqlite3_open(SQLITE_DB_FILE, &db) != SQLITE_OK) {
