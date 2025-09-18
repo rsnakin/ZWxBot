@@ -394,7 +394,7 @@ function getMoonIconByName(phaseName) {
 }
 function loadDashboard() {
     $.getJSON('/api/dashboard', function(data) {
-        $('#tempValue').html('<b>' + data.temperature_a + data.temperature.toFixed(2) + ' °C</b>');
+        $('#tempValue').html('<b>' + data.temperature_a + data.temperature + ' °C</b>');
         $('#humidityValue').html('<b>' + data.humidity_a + data.humidity.toFixed(0) + ' %</b>');
         let pressure = data.pressure * 0.75006375541921 / 100.;
         $('#pressureValue').html('<b>' + data.pressure_a + pressure.toFixed(2) + ' mmHg</b>');
