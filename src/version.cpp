@@ -2,7 +2,7 @@
 #include "version.hpp"
 
 const char VERSION[] = "1.1";
-const char BUILD[] = "61";
+const char BUILD[] = "62";
 
 const char* getVersion() {
     return VERSION;

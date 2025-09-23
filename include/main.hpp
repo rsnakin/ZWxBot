@@ -6,7 +6,7 @@
 #define API_CONF_SAVE         "/api/config_save"
 #define API_LOG               "/api/log"
 #define API_DASHBOARD         "/api/dashboard"
-#define LOG_PATH              "/var/log/ZWxBot"
+#define LOG_PATH              "/run"
 // DS18B20 -- GPIO4, BMP180 -- GPIO2 SDA, GPIO3	SCL
 #define DHT11_GPIO            22
 #define FAN_OBJECT_NAME       "FanPiPWMld"

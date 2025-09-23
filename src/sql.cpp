@@ -36,8 +36,7 @@ void insertRecord(sqlite3* db, float v1, float v2, float v3) {
     sqlite3_finalize(stmt);
 }
 void trimOldRecords(sqlite3* db, int maxRows) {
-    const char* sql = "DELETE FROM records WHERE id NOT IN ("
-                     "SELECT id FROM records ORDER BY id DESC LIMIT ?);";
+    const char* sql = "DELETE FROM records WHERE id NOT IN (SELECT id FROM records ORDER BY id DESC LIMIT ?);";
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, maxRows);
